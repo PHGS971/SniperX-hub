@@ -18,7 +18,7 @@ end
 local Favorites = LoadFavorites()
 
 local Window = Fluent:CreateWindow({
-    Title = "SniperX Hub v1.2",
+    Title = "SnîpęrX HūB v1.2",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Theme = "Dark",
@@ -148,5 +148,13 @@ Tabs.Links:AddButton({
     Callback = function()
         setclipboard("https://tiktok.com/@phgs_ofcx")
         NotifyWithSound("Copiado!", "Link do TikTok foi copiado!", 3)
+    end
+})
+
+Tabs.Links:AddButton({
+    Title = "Discord SnîpęrX HūB",
+    Callback = function()
+        setclipboard("https://discord.gg/G7AZY2T4Mw")
+        NotifyWithSound("Copiado!", "Link do Discord foi copiado!", 3)
     end
 })
