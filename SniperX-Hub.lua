@@ -1,23 +1,44 @@
+-- SniperX Hub - Completo
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
+local HttpService = game:GetService("HttpService")
+local FavoritesFile = "SniperX_Favorites.json"
+
+local function SaveFavorites(favorites)
+    writefile(FavoritesFile, HttpService:JSONEncode(favorites))
+end
+
+local function LoadFavorites()
+    if isfile(FavoritesFile) then
+        return HttpService:JSONDecode(readfile(FavoritesFile))
+    else
+        return {}
+    end
+end
+
+local Favorites = LoadFavorites()
+
 local Window = Fluent:CreateWindow({
-    Title = "SniperX Hub Alpha" .. Fluent.Version,
+    Title = "SniperX Hub v1.2",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Theme = "Dark",
-    ToggleKey = Enum.KeyCode.RightShift -- Pressione RightShift para abrir/fechar
+    ToggleKey = Enum.KeyCode.RightShift
 })
 
 local Tabs = {
     Main = Window:AddTab({ Title = "Scripts", Icon = "code" }),
-    Extras = Window:AddTab({ Title = "Extras", Icon = "sparkles" }),
-    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+    Extras = Window:AddTab({ Title = "Extras", Icon = "skull" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
+    DeadRails = Window:AddTab({ Title = "Dead Rails", Icon = "train" }),
+    QuebraGame = Window:AddTab({ Title = "Quebra Game", Icon = "alert-triangle" }),
+    Favorites = Window:AddTab({ Title = "Favoritos", Icon = "star" }),
+    Links = Window:AddTab({ Title = "Links", Icon = "plus" })
 }
 
--- Função para notificar com som
-local function NotifyWithSound(title, content, duration)
+local function NotifyWithSound(title, content, duration, color)
     local Sound = Instance.new("Sound", game:GetService("SoundService"))
-    Sound.SoundId = "rbxassetid://6026984224" -- som de notificação leve
+    Sound.SoundId = "rbxassetid://6026984224"
     Sound.Volume = 1
     Sound:Play()
     game.Debris:AddItem(Sound, 5)
@@ -25,60 +46,97 @@ local function NotifyWithSound(title, content, duration)
     Fluent:Notify({
         Title = title,
         Content = content,
-        Duration = duration or 3
+        Duration = duration or 3,
+        Image = "rbxassetid://7733658504",
+        Color = color or Color3.fromRGB(0, 170, 255),
+        Close = true
     })
 end
 
--- Main Tab
+local function AddScriptButton(tab, scriptTitle, url, color)
+    local function ExecuteScript()
+        NotifyWithSound("Carregando...", "Executando: " .. scriptTitle, 3, color)
+        loadstring(game:HttpGet(url))()
+    end
+
+    tab:AddButton({
+        Title = scriptTitle,
+        Callback = ExecuteScript
+    })
+
+    Tabs.Favorites:AddButton({
+        Title = "[Favoritar] " .. scriptTitle,
+        Callback = function()
+            table.insert(Favorites, {title = scriptTitle, url = url, color = color})
+            SaveFavorites(Favorites)
+            NotifyWithSound("Favorito adicionado", scriptTitle .. " foi salvo nos favoritos.")
+        end
+    })
+end
+
+-- Favoritos
+for _, fav in ipairs(Favorites) do
+    Tabs.Favorites:AddButton({
+        Title = fav.title,
+        Callback = function()
+            NotifyWithSound("Executando favorito", fav.title, 3, Color3.fromRGB(255, 255, 0))
+            loadstring(game:HttpGet(fav.url))()
+        end
+    })
+end
+
+-- Scripts principais
 Tabs.Main:AddParagraph({ Title = "Sniper hub", Content = "ABA SCRIPTS! Se os scripts não funcionarem é porque estão fora do ar!" })
 
-Tabs.Main:AddButton({
-    Title = "Pulo Infinito",
-    Callback = function()
-        NotifyWithSound("Carregando...", "Executando script: Pulo Infinito")
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/djmscript/infinite-jump/master/main.lua"))()
-    end
-})
+AddScriptButton(Tabs.Main, "Pulo Infinito", "https://raw.githubusercontent.com/djmscript/infinite-jump/master/main.lua", Color3.fromRGB(255, 170, 0))
+AddScriptButton(Tabs.Main, "Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", Color3.fromRGB(0, 200, 255))
+AddScriptButton(Tabs.Main, "Rael Hub", "https://pastebin.com/raw/hxdAY9qY", Color3.fromRGB(100, 255, 100))
 
-Tabs.Main:AddButton({
-    Title = "Infinite Yield",
-    Callback = function()
-        NotifyWithSound("Carregando...", "Executando script: Infinite Yield")
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-    end
-})
-
--- Extras Tab
+-- Extras
 Tabs.Extras:AddParagraph({ Title = "Extras", Content = "Utilitários e ferramentas adicionais." })
 
-Tabs.Extras:AddButton({
-    Title = "Anti-AFK",
+AddScriptButton(Tabs.Extras, "Anti-AFK", "https://raw.githubusercontent.com/Kirilllive/AntiAFK/main/AntiAFK.lua", Color3.fromRGB(100, 255, 100))
+AddScriptButton(Tabs.Extras, "Fly GUI", "https://pastebin.com/raw/YWdM5Gpc", Color3.fromRGB(255, 170, 255))
+AddScriptButton(Tabs.Extras, "Speed Modifier", "https://pastebin.com/raw/7Ez8wMGw", Color3.fromRGB(255, 85, 0))
+AddScriptButton(Tabs.Extras, "Dex Explorer", "https://raw.githubusercontent.com/infyiff/backup/main/dex.lua", Color3.fromRGB(170, 170, 255))
+
+-- Dead Rails
+AddScriptButton(Tabs.DeadRails, "Auto Farm Bonds v3", "https://rawscripts.net/raw/Dead-Rails-Alpha-auto-farm-bond-33133", Color3.fromRGB(0, 255, 127))
+
+-- Quebra Game
+AddScriptButton(Tabs.QuebraGame, "Ragdoll Engine Bugado", "https://rawscripts.net/raw/Ragdoll-Engine-BEST-SCRIPT-WORKING-SystemBroken-7544", Color3.fromRGB(255, 85, 127))
+AddScriptButton(Tabs.QuebraGame, "Ghosthub", "https://raw.githubusercontent.com/GhostPlayer352/Test4/main/GhostHub", Color3.fromRGB(255, 100, 100))
+AddScriptButton(Tabs.QuebraGame, "Shadow hub", "https://raw.githubusercontent.com/realgengar/scripts/refs/heads/main/Gui%20Version.lua", Color3.fromRGB(255, 0, 0))
+
+-- Settings
+Tabs.Settings:AddParagraph({ Title = "Créditos", Content = "Feito por phgs2456 e ChatGPT" })
+
+Tabs.Settings:AddButton({
+    Title = "Copiar Canal do PHGS (YouTube)",
     Callback = function()
-        NotifyWithSound("Executando", "Anti-AFK ativado.")
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Kirilllive/AntiAFK/main/AntiAFK.lua"))()
+        setclipboard("https://www.youtube.com/@PHGS_ofcx")
+        NotifyWithSound("Copiado!", "Link do canal PHGS foi copiado.", 3, Color3.fromRGB(85, 255, 255))
     end
 })
 
-Tabs.Extras:AddButton({
-    Title = "Fly GUI",
+-- Links
+Tabs.Links:AddParagraph({
+    Title = "LINKS",
+    Content = "Aqui estão os links que o criador colocou e suas redes sociais. Será copiada para sua área de transferência."
+})
+
+Tabs.Links:AddButton({
+    Title = "Canal do PHGS (YouTube)",
     Callback = function()
-        NotifyWithSound("Executando", "Fly GUI carregando...")
-        loadstring(game:HttpGet("https://pastebin.com/raw/YWdM5Gpc"))()
+        setclipboard("https://www.youtube.com/@PHGS_ofcx")
+        NotifyWithSound("Copiado!", "Link do canal foi copiado!", 3)
     end
 })
 
-Tabs.Extras:AddButton({
-    Title = "Speed Modifier",
+Tabs.Links:AddButton({
+    Title = "TikTok do PHGS",
     Callback = function()
-        NotifyWithSound("Executando", "Modificador de Velocidade ativado!")
-        loadstring(game:HttpGet("https://pastebin.com/raw/7Ez8wMGw"))()
-    end
-})
-
-Tabs.Extras:AddButton({
-    Title = "Dex Explorer",
-    Callback = function()
-        NotifyWithSound("Executando", "Dex carregando...")
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+        setclipboard("https://tiktok.com/@phgs_ofcx")
+        NotifyWithSound("Copiado!", "Link do TikTok foi copiado!", 3)
     end
 })
