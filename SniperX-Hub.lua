@@ -1,6 +1,5 @@
 -- SniperX Hub - Completo
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-
 local HttpService = game:GetService("HttpService")
 local FavoritesFile = "SniperX_Favorites.json"
 
@@ -67,7 +66,7 @@ local function AddScriptButton(tab, scriptTitle, url, color)
     Tabs.Favorites:AddButton({
         Title = "[Favoritar] " .. scriptTitle,
         Callback = function()
-            table.insert(Favorites, {title = scriptTitle, url = url, color = color})
+            table.insert(Favorites, { title = scriptTitle, url = url, color = color })
             SaveFavorites(Favorites)
             NotifyWithSound("Favorito adicionado", scriptTitle .. " foi salvo nos favoritos.")
         end
@@ -86,19 +85,27 @@ for _, fav in ipairs(Favorites) do
 end
 
 -- Scripts principais
-Tabs.Main:AddParagraph({ Title = "Sniper hub", Content = "ABA SCRIPTS! Se os scripts não funcionarem é porque estão fora do ar!" })
+Tabs.Main:AddParagraph({
+    Title = "Sniper hub",
+    Content = "ABA SCRIPTS! Se os scripts não funcionarem é porque estão fora do ar!"
+})
 
 AddScriptButton(Tabs.Main, "Pulo Infinito", "https://raw.githubusercontent.com/djmscript/infinite-jump/master/main.lua", Color3.fromRGB(255, 170, 0))
 AddScriptButton(Tabs.Main, "Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", Color3.fromRGB(0, 200, 255))
 AddScriptButton(Tabs.Main, "Rael Hub", "https://pastebin.com/raw/hxdAY9qY", Color3.fromRGB(100, 255, 100))
 
 -- Extras
-Tabs.Extras:AddParagraph({ Title = "Extras", Content = "Utilitários e ferramentas adicionais." })
+Tabs.Extras:AddParagraph({
+    Title = "Extras",
+    Content = "Utilitários e ferramentas adicionais."
+})
 
 AddScriptButton(Tabs.Extras, "Anti-AFK", "https://raw.githubusercontent.com/Kirilllive/AntiAFK/main/AntiAFK.lua", Color3.fromRGB(100, 255, 100))
 AddScriptButton(Tabs.Extras, "Fly GUI", "https://pastebin.com/raw/YWdM5Gpc", Color3.fromRGB(255, 170, 255))
 AddScriptButton(Tabs.Extras, "Speed Modifier", "https://pastebin.com/raw/7Ez8wMGw", Color3.fromRGB(255, 85, 0))
 AddScriptButton(Tabs.Extras, "Dex Explorer", "https://raw.githubusercontent.com/infyiff/backup/main/dex.lua", Color3.fromRGB(170, 170, 255))
+AddScriptButton(Tabs.Extras, "fly gui v3", "https://raw.githubusercontent.com/mikeexc/Dsc-Mike-Fly-Gui/main/Fly%20Gui", Color3.fromRGB(100, 255, 100))
+AddScriptButton(Tabs.Extras, "AutoFarm Candy", "https://raw.githubusercontent.com/r4mpage4/BrookHavenRP/refs/heads/main/AutoFarmCandy.lua", Color3.fromRGB(100, 255, 100))
 
 -- Dead Rails
 AddScriptButton(Tabs.DeadRails, "Auto Farm Bonds v3", "https://rawscripts.net/raw/Dead-Rails-Alpha-auto-farm-bond-33133", Color3.fromRGB(0, 255, 127))
@@ -109,7 +116,10 @@ AddScriptButton(Tabs.QuebraGame, "Ghosthub", "https://raw.githubusercontent.com/
 AddScriptButton(Tabs.QuebraGame, "Shadow hub", "https://raw.githubusercontent.com/realgengar/scripts/refs/heads/main/Gui%20Version.lua", Color3.fromRGB(255, 0, 0))
 
 -- Settings
-Tabs.Settings:AddParagraph({ Title = "Créditos", Content = "Feito por phgs2456 e ChatGPT" })
+Tabs.Settings:AddParagraph({
+    Title = "Créditos",
+    Content = "Feito por phgs2456 e ChatGPT"
+})
 
 Tabs.Settings:AddButton({
     Title = "Copiar Canal do PHGS (YouTube)",
