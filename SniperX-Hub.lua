@@ -56,7 +56,13 @@ end
 local function AddScriptButton(tab, scriptTitle, url, color)
     local function ExecuteScript()
         NotifyWithSound("Carregando...", "Executando: " .. scriptTitle, 3, color)
-        loadstring(game:HttpGet(url))()
+        local success, err = pcall(function()
+            loadstring(game:HttpGet(url))()
+        end)
+        if not success then
+            NotifyWithSound("Erro", "Falha ao executar: " .. scriptTitle, 4, Color3.fromRGB(255, 0, 0))
+            warn("[SniperX Hub] Erro ao executar script:", err)
+        end
     end
 
     tab:AddButton({
@@ -80,7 +86,13 @@ for _, fav in ipairs(Favorites) do
         Title = fav.title,
         Callback = function()
             NotifyWithSound("Executando favorito", fav.title, 3, Color3.fromRGB(255, 255, 0))
-            loadstring(game:HttpGet(fav.url))()
+            local success, err = pcall(function()
+                loadstring(game:HttpGet(fav.url))()
+            end)
+            if not success then
+                NotifyWithSound("Erro", "Falha ao executar favorito: " .. fav.title, 4, Color3.fromRGB(255, 0, 0))
+                warn("[SniperX Hub] Erro ao executar favorito:", err)
+            end
         end
     })
 end
@@ -99,8 +111,8 @@ AddScriptButton(Tabs.Extras, "Anti-AFK", "https://raw.githubusercontent.com/Kiri
 AddScriptButton(Tabs.Extras, "Fly GUI", "https://pastebin.com/raw/YWdM5Gpc", Color3.fromRGB(255, 170, 255))
 AddScriptButton(Tabs.Extras, "Speed Modifier", "https://pastebin.com/raw/7Ez8wMGw", Color3.fromRGB(255, 85, 0))
 AddScriptButton(Tabs.Extras, "Dex Explorer", "https://raw.githubusercontent.com/infyiff/backup/main/dex.lua", Color3.fromRGB(170, 170, 255))
-AddScriptButton(Tabs.Extras, "fly gui v3", "loadstring(game:HttpGet("https://raw.githubusercontent.com/mikeexc/Dsc-Mike-Fly-Gui/main/Fly%20Gui"))()", Color3.fromRGB(100, 255, 100))
-AddScriptButton(Tabs.Extras, "Anti-AFK", "https://raw.githubusercontent.com/r4mpage4/BrookHavenRP/refs/heads/main/AutoFarmCandy.lua", Color3.fromRGB(100, 255, 100))
+AddScriptButton(Tabs.Extras, "fly gui v3", "https://raw.githubusercontent.com/mikeexc/Dsc-Mike-Fly-Gui/main/Fly%20Gui", Color3.fromRGB(100, 255, 100))
+AddScriptButton(Tabs.Extras, "AutoFarm Brookhaven", "https://raw.githubusercontent.com/r4mpage4/BrookHavenRP/refs/heads/main/AutoFarmCandy.lua", Color3.fromRGB(100, 255, 100))
 
 -- Dead Rails
 AddScriptButton(Tabs.DeadRails, "Auto Farm Bonds v3", "https://rawscripts.net/raw/Dead-Rails-Alpha-auto-farm-bond-33133", Color3.fromRGB(0, 255, 127))
