@@ -154,3 +154,11 @@ Tabs.Links:AddButton({
         NotifyWithSound("Copiado!", "Link do TikTok foi copiado!", 3)
     end
 })
+
+Tabs.Links:AddButton({
+    Title = "SnîpęrX HūB youtube",
+    Callback = function()
+        setclipboard("https://www.youtube.com/@SnîpęrXHūB-Official-channel")
+        NotifyWithSound("Copiado!", "Link do SniperX hub channel foi copiado!", 3)
+    end
+})
