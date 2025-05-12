@@ -162,3 +162,11 @@ Tabs.Links:AddButton({
         NotifyWithSound("Copiado!", "Link do SniperX hub channel foi copiado!", 3)
     end
 })
+
+Tabs.Links:AddButton({
+    Title = "SnîpęrX HūB 🇧🇷 Discord",
+    Callback = function()
+        setclipboard("https://discord.gg/wQN7ZZF9N4")
+        NotifyWithSound("Copiado!", "Link do SniperX hub server foi copiado!", 3)
+    end
+})
