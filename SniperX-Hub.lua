@@ -1,6 +1,11 @@
 -- SniperX Hub - v1.2
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
+Fluent:Notify({
+    Title = "Bem-vindo",
+    Content = "Script feito por PHGS"
+})
+
 local HttpService = game:GetService("HttpService")
 local FavoritesFile = "SniperX_Favorites.json"
 
@@ -22,7 +27,7 @@ local Window = Fluent:CreateWindow({
     Title = "SnîpęrX HūB v1.2",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
-    Theme = "Dark",
+    Theme = "Red",
     ToggleKey = Enum.KeyCode.RightShift
 })
 
