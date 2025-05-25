@@ -113,11 +113,11 @@ AddScriptButton(Tabs.Main, "Rael Hub", "https://pastebin.com/raw/hxdAY9qY", Colo
 Tabs.Extras:AddParagraph({ Title = "Extras", Content = "Utilitários e ferramentas adicionais." })
 
 AddScriptButton(Tabs.Extras, "Anti-AFK", "https://raw.githubusercontent.com/Kirilllive/AntiAFK/main/AntiAFK.lua", Color3.fromRGB(100, 255, 100))
-AddScriptButton(Tabs.Extras, "Fly GUI", "https://pastebin.com/raw/YWdM5Gpc", Color3.fromRGB(255, 170, 255))
 AddScriptButton(Tabs.Extras, "Speed Modifier", "https://pastebin.com/raw/7Ez8wMGw", Color3.fromRGB(255, 85, 0))
 AddScriptButton(Tabs.Extras, "Dex Explorer", "https://raw.githubusercontent.com/infyiff/backup/main/dex.lua", Color3.fromRGB(170, 170, 255))
-AddScriptButton(Tabs.Extras, "fly gui v3", "https://raw.githubusercontent.com/mikeexc/Dsc-Mike-Fly-Gui/main/Fly%20Gui", Color3.fromRGB(100, 255, 100))
+AddScriptButton(Tabs.Extras, "voar do hub", "https://raw.githubusercontent.com/PHGS971/chata/refs/heads/main/script.lua", Color3.fromRGB(100, 255, 100))
 AddScriptButton(Tabs.Extras, "AutoFarm Brookhaven", "https://raw.githubusercontent.com/r4mpage4/BrookHavenRP/refs/heads/main/AutoFarmCandy.lua", Color3.fromRGB(100, 255, 100))
+
 
 -- Dead Rails
 AddScriptButton(Tabs.DeadRails, "Auto Farm Bonds v3", "https://rawscripts.net/raw/Dead-Rails-Alpha-auto-farm-bond-33133", Color3.fromRGB(0, 255, 127))
