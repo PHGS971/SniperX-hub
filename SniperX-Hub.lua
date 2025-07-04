@@ -114,9 +114,9 @@ Tabs.Extras:AddParagraph({ Title = "Extras", Content = "Utilitários e ferrament
 
 AddScriptButton(Tabs.Extras, "Anti-AFK", "https://raw.githubusercontent.com/Kirilllive/AntiAFK/main/AntiAFK.lua", Color3.fromRGB(100, 255, 100))
 AddScriptButton(Tabs.Extras, "Speed Modifier", "https://pastebin.com/raw/7Ez8wMGw", Color3.fromRGB(255, 85, 0))
-AddScriptButton(Tabs.Extras, "SnîpęrX HūB Plus!", "https://github.com/PHGS971/SniperX-Hub-Plus-/blob/main/Script.lua", Color3.fromRGB(170, 170, 255))
-AddScriptButton(Tabs.Extras, "voar do hub", "https://raw.githubusercontent.com/PHGS971/chata/refs/heads/main/script.lua", Color3.fromRGB(100, 255, 100))
-AddScriptButton(Tabs.Extras, "AutoFarm Brookhaven", "https://raw.githubusercontent.com/r4mpage4/BrookHavenRP/refs/heads/main/AutoFarmCandy.lua", Color3.fromRGB(100, 255, 100))
+AddScriptButton(Tabs.Extras, "SnîpęrX HūB Plus!", "https://raw.githubusercontent.com/PHGS971/SniperX-Hub-Plus-/main/Script.lua", Color3.fromRGB(170, 170, 255))
+AddScriptButton(Tabs.Extras, "voar do hub", "https://raw.githubusercontent.com/PHGS971/chata/main/script.lua", Color3.fromRGB(100, 255, 100))
+AddScriptButton(Tabs.Extras, "AutoFarm Brookhaven", "https://raw.githubusercontent.com/r4mpage4/BrookHavenRP/main/AutoFarmCandy.lua", Color3.fromRGB(100, 255, 100))
 
 
 -- Dead Rails
