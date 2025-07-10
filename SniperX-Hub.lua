@@ -24,7 +24,7 @@ end
 local Favorites = LoadFavorites()
 
 local Window = Fluent:CreateWindow({
-    Title = "SnîpęrX HūB v1.2",
+    Title = "SnîpęrX HūB Central v1.2",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Theme = "aqua",
@@ -33,7 +33,7 @@ local Window = Fluent:CreateWindow({
 
 local Tabs = {
     Main = Window:AddTab({ Title = "Scripts", Icon = "code" }),
-    Extras = Window:AddTab({ Title = "Extras", Icon = "skull" }),
+    Extras = Window:AddTab({ Title = "Outros", Icon = "⚡" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
     DeadRails = Window:AddTab({ Title = "Dead Rails", Icon = "train" }),
     QuebraGame = Window:AddTab({ Title = "Quebra Game", Icon = "alert-triangle" }),
@@ -110,13 +110,12 @@ AddScriptButton(Tabs.Main, "Infinite Yield", "https://raw.githubusercontent.com/
 AddScriptButton(Tabs.Main, "Rael Hub", "https://pastebin.com/raw/hxdAY9qY", Color3.fromRGB(100, 255, 100))
 
 -- Extras
-Tabs.Extras:AddParagraph({ Title = "Extras", Content = "Utilitários e ferramentas adicionais." })
+Tabs.Extras:AddParagraph({ Title = "Outros scripts", Content = "Scripts feitos por PHGS compativel com acentral" })
 
-AddScriptButton(Tabs.Extras, "Anti-AFK", "https://raw.githubusercontent.com/Kirilllive/AntiAFK/main/AntiAFK.lua", Color3.fromRGB(100, 255, 100))
-AddScriptButton(Tabs.Extras, "Speed Modifier", "https://pastebin.com/raw/7Ez8wMGw", Color3.fromRGB(255, 85, 0))
 AddScriptButton(Tabs.Extras, "SnîpęrX HūB Plus!", "https://raw.githubusercontent.com/PHGS971/SniperX-Hub-Plus-/main/Script.lua", Color3.fromRGB(170, 170, 255))
 AddScriptButton(Tabs.Extras, "voar do hub", "https://raw.githubusercontent.com/PHGS971/chata/main/script.lua", Color3.fromRGB(100, 255, 100))
-AddScriptButton(Tabs.Extras, "AutoFarm Brookhaven", "https://raw.githubusercontent.com/r4mpage4/BrookHavenRP/main/AutoFarmCandy.lua", Color3.fromRGB(100, 255, 100))
+AddScriptButton(Tabs.Extras, "mm2", "https://raw.githubusercontent.com/PHGS971/E-a-uni-o-flasco/refs/heads/main/mm2script.lua", Color3.fromRGB(100, 255, 100))
+
 
 
 -- Dead Rails
