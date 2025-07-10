@@ -114,7 +114,7 @@ Tabs.Extras:AddParagraph({ Title = "Outros scripts", Content = "Scripts feitos p
 
 AddScriptButton(Tabs.Extras, "SnîpęrX HūB Plus!", "https://raw.githubusercontent.com/PHGS971/SniperX-Hub-Plus-/main/Script.lua", Color3.fromRGB(170, 170, 255))
 AddScriptButton(Tabs.Extras, "voar do hub", "https://raw.githubusercontent.com/PHGS971/chata/main/script.lua", Color3.fromRGB(100, 255, 100))
-AddScriptButton(Tabs.Extras, "mm2", "https://raw.githubusercontent.com/PHGS971/E-a-uni-o-flasco/refs/heads/main/mm2script.lua", Color3.fromRGB(100, 255, 100))
+AddScriptButton(Tabs.Extras, "mm2", "https://raw.githubusercontent.com/PHGS971/E-a-uni-o-flasco/main/mm2script.lua", Color3.fromRGB(100, 255, 100))
 
 
 
