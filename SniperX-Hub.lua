@@ -114,8 +114,9 @@ Tabs.Extras:AddParagraph({ Title = "Outros scripts", Content = "Scripts feitos p
 
 AddScriptButton(Tabs.Extras, "SnîpęrX HūB Plus!", "https://raw.githubusercontent.com/PHGS971/SniperX-Hub-Plus-/main/Script.lua", Color3.fromRGB(170, 170, 255))
 AddScriptButton(Tabs.Extras, "voar do hub", "https://raw.githubusercontent.com/PHGS971/chata/main/script.lua", Color3.fromRGB(100, 255, 100))
-AddScriptButton(Tabs.Extras, "em breve...", "https://raw.githubusercontent.com/PHGS971/E-a-uni-o-flasco/main/PHGS%20SECRET%20HUB%E2%9A%A1.lua", Color3.fromRGB(100, 255, 100))
+AddScriptButton(Tabs.Extras, "PHGS SECRET HUB", "https://raw.githubusercontent.com/PHGS971/E-a-uni-o-flasco/main/phgssecrethub.lua", Color3.fromRGB(100, 255, 100))
 
+AddScriptButton(Tabs.Extras, "MM2 Script", "https://raw.githubusercontent.com/PHGS971/E-a-uni-o-flasco/main/mm2script.lua", Color3.fromRGB(255, 255, 100))
 
 
 -- Dead Rails
